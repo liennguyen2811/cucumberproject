@@ -1,0 +1,12 @@
+{
+  "iOS": {
+    "B2BLoginPage": {
+      "LOGIN_AND_START": "//*[@name='Log in and get started']",
+      "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']"
+    },
+    "android": {
+      "LOGIN_AND_START": "//*[@name='Log in and get started']",
+      "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']"
+    }
+  }
+}

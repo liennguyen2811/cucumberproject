@@ -1,0 +1,20 @@
+{
+  "device": {
+    "iphone_7": {
+      "device_name": "iPhone 12 Pro Max",
+      "platform_name": "iOS",
+      "platform_version": "14.2",
+      "no_reset": true,
+      "udid": "CFFAEBED-5E31-495B-8793-A0963AD4CD48",
+      "automation_name": "XCUITest",
+      "app_path": "MYUP.app"
+    },
+    "samsung_s6": {
+      "device_name": "R9JN1003YDJ",
+      "platform_name": "Android",
+      "platform_version": "10",
+      "no_reset": false,
+      "app_path": "B2B.apk"
+    }
+  }
+}

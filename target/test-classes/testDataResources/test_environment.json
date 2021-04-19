@@ -1,0 +1,21 @@
+{
+  "environment_urls":
+  {
+    "base_url": "https://developer-portal-client-uat.nxt.uat.unifiedpost.com/"
+  },
+  "billtobox_urls":
+  {
+    "identification": "Bei8ieghoo6eRieG",
+    "base_url": "https://community-api-test-1-2.nxt.uat.unifiedpost.com"
+  },
+  "existing_users": {
+    "qa_account": {
+      "email": "minhtl2@unifiedpost.com",
+      "password": "P@ssword1"
+    },
+    "qa_account_lien": {
+      "email": "liennth7@unifiedpost.com",
+      "password": "0983791128"
+    }
+  }
+}
