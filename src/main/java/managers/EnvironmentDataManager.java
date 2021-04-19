@@ -1,7 +1,6 @@
 package managers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -44,9 +43,5 @@ public class EnvironmentDataManager{
         androidElements =  (HashMap<String, HashMap<String, String>>) elements.get("Android");
         iOSElements =  (HashMap<String, HashMap<String, String>>) elements.get("iOS");
         billtoboxUrls = (HashMap<String, String>) env.get("billtobox_urls");
-        System.out.println(existingUsers.get("qa_account_lien").get("email"));
-        System.out.println(environmentUrls.get("base_url"));
-        System.out.println(existingDevice.get("iphone_7").get("device_name"));
-        System.out.println(iOSElements.get("B2BLoginPage").get("LOGIN_AND_START"));
     }
 }

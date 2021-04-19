@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>761113751578-0g2cvnls65daegrt3jb7mu7bv6e84gvv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.761113751578-0g2cvnls65daegrt3jb7mu7bv6e84gvv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDnqQbeZrAvll1N0eeNtuZYKw7q_dbrQgE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>761113751578</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.paynxt.itspaid.UAT</string>
+	<key>PROJECT_ID</key>
+	<string>itspaid-uat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>itspaid-uat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:761113751578:ios:9dda0e43fd1444e5</string>
+	<key>DATABASE_URL</key>
+	<string>https://itspaid-uat.firebaseio.com</string>
+</dict>
+</plist>

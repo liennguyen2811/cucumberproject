@@ -1,0 +1,14 @@
+//
+//  billtobox.xcconfig
+//  billToBox
+//
+//  Created by Roxana Coste on 27/01/2020.
+//  Copyright © 2020 Cobalt Sign SRL. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_IDENTIFIER = billtobox
+APP_LOGO_NAME = logo.billtobox
+INFOPLIST_FILE = Info.billtobox.plist

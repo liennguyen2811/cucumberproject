@@ -2,11 +2,16 @@ Feature: Login Action
 
   Scenario: Successful Login with Valid Credentials
     Given User enters "liennth7@unifiedpost.com" and "0983791128a@"
-    And User clicks Library tab
-    And User choose the API to view
-    And User clicks API name
-    Then Library Detail page displays
-    Then Verify the order details
+    And User enters "liennth7@unifiedpost.com" and "0983791128a@"
+    Then Verify user login successfully
+
+#  Scenario: Successful Login with Valid Credentials
+#    Given User enters "liennth7@unifiedpost.com" and "0983791128a@"
+#    And User clicks Library tab
+#    And User choose the API to view
+#    And User clicks API name
+#    Then Library Detail page displays
+#    Then Verify the order details
 
 #  Scenario: Successful Login with Valid Credentials
 #    Given User enters Credentials to LogIn

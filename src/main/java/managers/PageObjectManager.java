@@ -1,10 +1,7 @@
 package managers;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.DashboardPage;
-import pageObjects.LibraryDetailPage;
-import pageObjects.LibraryPage;
-import pageObjects.LoginPage;
+import pageObjects.*;
 
 public class PageObjectManager {
 
@@ -13,6 +10,7 @@ public class PageObjectManager {
     private DashboardPage dashboardPage;
     private LibraryPage libraryPage;
     private LibraryDetailPage libraryDetailPage;
+    private B2BLoginPage b2bLoginPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -29,5 +27,8 @@ public class PageObjectManager {
     }
     public LibraryDetailPage getLibraryDetailPage() {
         return (libraryDetailPage == null) ? libraryDetailPage = new LibraryDetailPage(driver) : libraryDetailPage;
+    }
+    public B2BLoginPage getB2BLoginPage() {
+        return (b2bLoginPage == null) ? b2bLoginPage = new B2BLoginPage(driver) :b2bLoginPage;
     }
 }

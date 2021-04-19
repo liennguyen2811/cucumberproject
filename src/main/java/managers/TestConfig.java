@@ -35,8 +35,8 @@ public final class TestConfig {
     public static Browser getBrowser() {
         String envBrowser = System.getProperty("testBrowser");
       //ios
-        // envBrowser = (envBrowser != null) ? envBrowser : "android";
-         envBrowser = (envBrowser != null) ? envBrowser : "ios";
+         envBrowser = (envBrowser != null) ? envBrowser : "android";
+//         envBrowser = (envBrowser != null) ? envBrowser : "ios";
 
         switch (envBrowser.toLowerCase()) {
             case "firefox":

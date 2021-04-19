@@ -28,6 +28,7 @@ public class WebDriverManager {
     public WebDriverManager() {
         driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
         environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
+        TestConfig.initEnvironment();
         existingDevice = TestConfig.existingDevice;
     }
 
@@ -100,7 +101,6 @@ public class WebDriverManager {
         capabilities.setCapability(MobileCapabilityType.UDID, existingDevice.get("iphone_7").get("udid"));
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, existingDevice.get("iphone_7").get("automation_name"));
         capabilities.setCapability("app", buildPath);
-        // dimiss alert in ios - launch time out
 //        capabilities.setCapability("autoGrantPermissions", "true");
         capabilities.setCapability("autoAcceptAlerts", "true");
         capabilities.setCapability("newCommandTimeout","3000");
@@ -138,7 +138,6 @@ public class WebDriverManager {
             System.setProperty("webdriver.gecko.driver", "./src/bin/macOS/geckodriver");
         }
     }
-
 
     public void quitDriver() {
         driver.close();

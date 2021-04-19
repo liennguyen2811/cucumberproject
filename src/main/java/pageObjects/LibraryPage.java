@@ -9,8 +9,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import testDataTypes.Customer;
 
-import java.io.IOException;
-
 public class LibraryPage {
 
     private final WebDriver driver;
@@ -47,11 +45,7 @@ public class LibraryPage {
     }
 
     public void checkMapTest(String test) {
-        try {
-            EnvironmentDataManager environmentDataManager = new EnvironmentDataManager(test);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        EnvironmentDataManager environmentDataManager = new EnvironmentDataManager(test);
     }
     public void fill_PersonalDetails(Customer customer) {
         System.out.println("Check read json " + customer.firstName);
