@@ -1,10 +1,11 @@
 package managers;
 
-import enums.DriverType;
-import enums.EnvironmentType;
+import common.TestConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import models.BrowserstackConfig;
+import models.GridConfig;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -13,65 +14,69 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 public class WebDriverManager {
-    private WebDriver driver;
-    private static DriverType driverType;
-    private static EnvironmentType environmentType;
+    public static WebDriver driverRunForMobileOrBrowser;
+    public TestConfig.DriverHub driverHub;
+    public GridConfig grid;
+    public BrowserstackConfig browserStack;
     static HashMap<String, HashMap<String, String>> existingDevice;
 
     public WebDriverManager() {
-        driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
-        environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
+        driverHub = TestConfig.getHub();
+        grid = new GridConfig();
+        browserStack = new BrowserstackConfig();
         TestConfig.initEnvironment();
         existingDevice = TestConfig.existingDevice;
     }
 
-    public WebDriver getDriver() {
-        if(driver == null) driver = createDriver();
-        return driver;
+    public static WebDriver getDriver() {
+        //if(driver == null) driver = createDriver();
+        return driverRunForMobileOrBrowser;
     }
 
-    private WebDriver createDriver() {
-        switch (environmentType) {
-            case LOCAL : driver = createLocalDriver();
+    public WebDriver createDriver() {
+        switch (driverHub) {
+            case LOCAL : driverRunForMobileOrBrowser = createLocalDriver(TestConfig.getDriverType());
                 break;
-            case REMOTE : driver = createRemoteDriver();
-                break;
+            case BROWSERSTACK:
+                return driverRunForMobileOrBrowser = createBrowserstackBrowser(TestConfig.getTestNameForBrowserStack());
+            default:
+                return driverRunForMobileOrBrowser = createLocalDriver(TestConfig.getDriverType());
         }
-        return driver;
+        return driverRunForMobileOrBrowser;
     }
 
     private WebDriver createRemoteDriver() {
         throw new RuntimeException("RemoteWebDriver is not yet implemented");
     }
 
-    private WebDriver createLocalDriver() {
+    private WebDriver createLocalDriver(TestConfig.DriverType driverType) {
         setDriversPath();
         switch (driverType) {
-            case FIREFOX : driver = new FirefoxDriver();
+            case FIREFOX : driverRunForMobileOrBrowser = new FirefoxDriver();
                 break;
             case CHROME :
-                driver = new ChromeDriver();
+                driverRunForMobileOrBrowser = new ChromeDriver();
                 break;
-            case INTERNETEXPLORER : driver = new InternetExplorerDriver();
+            case INTERNETEXPLORER : driverRunForMobileOrBrowser = new InternetExplorerDriver();
                 break;
-            case EDGE:driver =new EdgeDriver();
+            case EDGE:driverRunForMobileOrBrowser =new EdgeDriver();
                 break;
-            case ANDROID: driver = setAndroidDriver();
+            case ANDROID: driverRunForMobileOrBrowser = setAndroidDriver();
+                System.out.println("Lien android--" + driverRunForMobileOrBrowser.hashCode());
                 break;
-            case IOS: driver = setIOSDriver();
+            case IOS: driverRunForMobileOrBrowser = setIOSDriver();
+                break;
             default:
             return new ChromeDriver();
         }
-        //if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
-        return driver;
+        return driverRunForMobileOrBrowser;
     }
     public WebDriver setAndroidDriver() {
         String buildPath = setBuildPath();
@@ -95,13 +100,11 @@ public class WebDriverManager {
         MutableCapabilities capabilities = new MutableCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, existingDevice.get("iphone_7").get("device_name"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, existingDevice.get("iphone_7").get("platform_name"));
-        //capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, existingDevice.get("iphone_7").get("platform_version"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"13.4");
         capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
         capabilities.setCapability(MobileCapabilityType.UDID, existingDevice.get("iphone_7").get("udid"));
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, existingDevice.get("iphone_7").get("automation_name"));
         capabilities.setCapability("app", buildPath);
-//        capabilities.setCapability("autoGrantPermissions", "true");
         capabilities.setCapability("autoAcceptAlerts", "true");
         capabilities.setCapability("newCommandTimeout","3000");
         try {
@@ -114,7 +117,7 @@ public class WebDriverManager {
     private String setBuildPath() {
         String workingDir = System.getProperty("user.dir");
         String appPath;
-        if (TestConfig.getBrowser().toString().contentEquals("ANDROID")) {
+        if (TestConfig.getDriverType().toString().contentEquals("ANDROID")) {
             // appPath = workingDir + "\\src\\test\\app\\android\\" + existingDevice.get("samsung_s6").get("app_path");
             appPath = workingDir + "//src//test//app//android//" + existingDevice.get("samsung_s6").get("app_path");
         } else {
@@ -138,10 +141,17 @@ public class WebDriverManager {
             System.setProperty("webdriver.gecko.driver", "./src/bin/macOS/geckodriver");
         }
     }
-
-    public void quitDriver() {
-        driver.close();
-        driver.quit();
+    private DesiredCapabilities get_bs_capabilities(String testName) {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("name", testName);
+        capabilities.setCapability("browserName", "iPhone");
+        capabilities.setCapability("device", "iPhone 8 Plus");
+        capabilities.setCapability("realMobile", "true");
+        capabilities.setCapability("os_version", "11");
+        return capabilities;
+    }
+    private WebDriver createBrowserstackBrowser(String testName) {
+        return new RemoteWebDriver(browserStack.hub, get_bs_capabilities(testName));
     }
 
 }

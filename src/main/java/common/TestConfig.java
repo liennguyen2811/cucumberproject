@@ -1,4 +1,6 @@
-package managers;
+package common;
+
+import managers.EnvironmentDataManager;
 
 import java.util.HashMap;
 
@@ -15,24 +17,24 @@ public final class TestConfig {
         return (envEnvironment != null) ? envEnvironment : "test";
     }
 
-    public static Driver getHub() {
+    public static DriverHub getHub() {
         String envHub = System.getProperty("hub");
 
         envHub = (envHub != null) ? envHub : "local";
 
         switch (envHub) {
             case "browserstack":
-                return Driver.BROWSERSTACK;
+                return DriverHub.BROWSERSTACK;
             case "grid":
-                return Driver.GRID;
+                return DriverHub.GRID;
             case "local":
-                return Driver.LOCAL;
+                return DriverHub.LOCAL;
             default:
-                return Driver.LOCAL;
+                return DriverHub.LOCAL;
         }
     }
 
-    public static Browser getBrowser() {
+    public static DriverType getDriverType() {
         String envBrowser = System.getProperty("testBrowser");
       //ios
          envBrowser = (envBrowser != null) ? envBrowser : "android";
@@ -40,19 +42,19 @@ public final class TestConfig {
 
         switch (envBrowser.toLowerCase()) {
             case "firefox":
-                return Browser.FIREFOX;
+                return DriverType.FIREFOX;
             case "chrome":
-                return Browser.CHROME;
+                return DriverType.CHROME;
             case "ie":
-                return Browser.IE;
+                return DriverType.IE;
             case "edge":
-                return Browser.EDGE;
+                return DriverType.EDGE;
             case "android":
-                return Browser.ANDROID;
+                return DriverType.ANDROID;
             case "ios":
-                return Browser.IOS;
+                return DriverType.IOS;
             default:
-                return Browser.SAFARI;
+                return DriverType.SAFARI;
         }
     }
 
@@ -71,10 +73,10 @@ public final class TestConfig {
         return envUseTestrail.equals("yes");
     }
 
-    public enum Driver {BROWSERSTACK, GRID, LOCAL}
+    public enum DriverHub {BROWSERSTACK, GRID, LOCAL}
 
 
-    public enum Browser {FIREFOX, CHROME, IE, EDGE, SAFARI,ANDROID,IOS}
+    public enum DriverType {FIREFOX, CHROME, IE, EDGE,INTERNETEXPLORER, SAFARI,ANDROID,IOS}
 
     public enum TestRailStatus {
         PASSED("1"),

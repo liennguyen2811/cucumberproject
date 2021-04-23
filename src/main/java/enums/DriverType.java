@@ -1,10 +1,10 @@
-package enums;
-
-public enum DriverType {
-    FIREFOX,
-    CHROME,
-    INTERNETEXPLORER,
-    EDGE,
-    ANDROID,
-    IOS
-}
+//package enums;
+//
+//public enum DriverType {
+//    FIREFOX,
+//    CHROME,
+//    INTERNETEXPLORER,
+//    EDGE,
+//    ANDROID,
+//    IOS
+//}

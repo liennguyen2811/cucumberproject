@@ -1,8 +1,5 @@
 package dataProviders;
 
-import enums.DriverType;
-import enums.EnvironmentType;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -48,21 +45,21 @@ public class ConfigFileReader {
         if (url != null) return url;
         else throw new RuntimeException("url not specified in the Configuration.properties file.");
     }
-    public DriverType getBrowser() {
-        String browserName = properties.getProperty("browser");
-        if(browserName == null || browserName.equals("chrome")) return DriverType.CHROME;
-        else if(browserName.equalsIgnoreCase("firefox")) return DriverType.FIREFOX;
-        else if(browserName.equals("iexplorer")) return DriverType.INTERNETEXPLORER;
-        else if (browserName.equals("android")) return  DriverType.ANDROID;
-        else throw new RuntimeException("Browser Name Key value in Configuration.properties is not matched : " + browserName);
-    }
+//    public DriverType getBrowser() {
+//        String browserName = properties.getProperty("browser");
+//        if(browserName == null || browserName.equals("chrome")) return TestConfig.DriverType.CHROME;
+//        else if(browserName.equalsIgnoreCase("firefox")) return TestConfig.DriverType.FIREFOX;
+//        else if(browserName.equals("iexplorer")) return DriverType.INTERNETEXPLORER;
+//        else if (browserName.equals("android")) return  DriverType.ANDROID;
+//        else throw new RuntimeException("Browser Name Key value in Configuration.properties is not matched : " + browserName);
+//    }
 
-    public EnvironmentType getEnvironment() {
-        String environmentName = properties.getProperty("environment");
-        if(environmentName == null || environmentName.equalsIgnoreCase("local")) return EnvironmentType.LOCAL;
-        else if(environmentName.equals("remote")) return EnvironmentType.REMOTE;
-        else throw new RuntimeException("Environment Type Key value in Configuration.properties is not matched : " + environmentName);
-    }
+//    public EnvironmentType getEnvironment() {
+//        String environmentName = properties.getProperty("environment");
+//        if(environmentName == null || environmentName.equalsIgnoreCase("local")) return EnvironmentType.LOCAL;
+//        else if(environmentName.equals("remote")) return EnvironmentType.REMOTE;
+//        else throw new RuntimeException("Environment Type Key value in Configuration.properties is not matched : " + environmentName);
+//    }
 
     public Boolean getBrowserWindowSize() {
         String windowSize = properties.getProperty("windowMaximize");
