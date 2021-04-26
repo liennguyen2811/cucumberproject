@@ -52,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Apr 26, 2021 04:04:27 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Apr 26, 2021 04:29:13 PM</span>
 				</a>
 			</li>
 			<li>
@@ -77,7 +77,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -128,10 +128,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -143,10 +143,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -158,10 +158,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>4</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -175,50 +175,50 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf skip' status='skip' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Login Action</span>
-						<span class='test-time'>Apr 26, 2021 04:04:27 PM</span>
-						<span class='test-status right skip'>skip</span>
+						<span class='test-time'>Apr 26, 2021 04:29:13 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='2' status='skip'>
-	<span class='duration right label'>0h 0m 2s+231ms</span>
+<div class='scenario node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 21s+385ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">B2B Successful Login with Valid Credentials</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='3' class='node given skip' status='skip'>
+		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Given B2B User is on login Page</span>
-				<div class='pre'>skipped</div>
+				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='4' class='node and skip' status='skip'>
+		<li test-id='4' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
 			<span class="bdd-step-name">And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@"</span>
-				<div class='pre'>skipped</div>
+				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='5' class='node and skip' status='skip'>
+		<li test-id='5' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
 			<span class="bdd-step-name">And B2B User hit login button</span>
-				<div class='pre'>skipped</div>
+				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='6' class='node then skip' status='skip'>
+		<li test-id='6' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
 			<span class="bdd-step-name">Then B2B Verify user login successfully</span>
-				<div class='pre'>skipped</div>
+				<div class='pre'>passed</div>
 			
 		</li>
 	</ul>
@@ -279,14 +279,14 @@
                             <div class='author-heading'>
                                 <span class='author-name'>LienNguyen</span>
                                 <span class='author-status right'>
-                                        <span class='label others'>1</span>
+                                        <span class='label pass'>1</span>
 						        </span>
                             </div>
                             <div class='author-content hide'>
                                 <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 1</span>
                                     
                                     
-                                    <span class='label yellow darken-2 white-text'>Others: 1</span>
                                 </div>
 
                                 <div class='author-tests'>
@@ -300,9 +300,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Apr 26, 2021 04:04:27 PM</td>
+                                                <td>Apr 26, 2021 04:29:13 PM</td>
                                                 <td class='linked' test-id='2'>Login Action.B2B Successful Login with Valid Credentials</td>
-                                                <td><span class='test-status skip'>skip</span></td>
+                                                <td><span class='test-status pass'>pass</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -347,19 +347,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 26, 2021 04:04:27 PM</div>
+					<div class='panel-lead'>Apr 26, 2021 04:29:13 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 26, 2021 04:04:30 PM</div>
+			 		<div class='panel-lead'>Apr 26, 2021 04:29:34 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 2s+418ms</div>
+					<div class='panel-lead'>0h 0m 21s+579ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -408,31 +408,31 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
+				passParent: 1,
 				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
-				skipParent: 1,
-				exceptionsParent: 1,
+				skipParent: 0,
+				exceptionsParent: 0,
 				
-				passChild: 0,
+				passChild: 1,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
-				skipChild: 1,
+				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 1,
+				exceptionsChild: 0,
 				
-				passGrandChild: 0,
+				passGrandChild: 4,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 4,
+				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 4,
+				exceptionsGrandChild: 0,
 			};
 		</script>
 		
