@@ -3,13 +3,11 @@ package managers;
 import pageObjects.*;
 
 public class PageObjectWebManager {
-
     private WebAbstractPage webAbstractPage;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private LibraryPage libraryPage;
     private LibraryDetailPage libraryDetailPage;
-
 
     public PageObjectWebManager(WebAbstractPage webAbstractPage) {
         this.webAbstractPage = webAbstractPage;

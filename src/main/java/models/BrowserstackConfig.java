@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackConfig {
-    private static final String BS_USER = "liennguyen3";
-    private static final String BS_ACCESS_KEY = "TUhRyuzzDsD6Dw7r1Gc4";
+    private static final String BS_USER = "minhtran38";
+    private static final String BS_ACCESS_KEY = "NTdNshs8XaxvsTdSJBzy";
     public String user, accessKey, restUri;
     public URL hub;
 

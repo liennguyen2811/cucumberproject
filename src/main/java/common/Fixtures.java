@@ -16,7 +16,6 @@ public class Fixtures {
             WebDriver driverType;
             if(TestConfig.getDriverType().toString().contentEquals("IOS")|| TestConfig.getDriverType().toString().contentEquals("ANDROID")){
                 driverType = driverManager.createDriver();
-                System.out.println("Lien get driver at initBrowserOrAppMobile---" + driverType.hashCode());
             }
             else {
                 driverType = driverManager.createDriver();

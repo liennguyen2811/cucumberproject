@@ -27,16 +27,12 @@ public class WebAbstractPage {
     List<WebElement> elements;
     JavascriptExecutor jsExecutor;
     WebDriverWait waitExplicit;
-    public static WebAbstractPage webAbstractPage;
 
     public WebAbstractPage(String browser) {
         this.driver = startBrowser(browser);;
         jsExecutor = (JavascriptExecutor) driver;
         waitExplicit = new WebDriverWait(driver, longTimeout);
         action = new Actions(driver);
-    }
-    public static WebAbstractPage getWebAbstractPage() {
-        return webAbstractPage;
     }
 
     public void openUrl(String urlValue) {

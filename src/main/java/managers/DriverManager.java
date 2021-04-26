@@ -7,6 +7,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import models.BrowserstackConfig;
 import models.GridConfig;
 import org.apache.commons.lang3.SystemUtils;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,7 +42,7 @@ public class DriverManager {
 
     public WebDriver createDriver() {
         switch (driverHub) {
-            case LOCAL : driverRunForMobileOrBrowser = createLocalDriver(TestConfig.getDriverType());
+           case GRID: driverRunForMobileOrBrowser = setGridBrowser(TestConfig.getDriverType());
                 break;
             case BROWSERSTACK:
                 return driverRunForMobileOrBrowser = createBrowserstackBrowser(TestConfig.getTestNameForBrowserStack());
@@ -68,7 +69,6 @@ public class DriverManager {
             case EDGE:driverRunForMobileOrBrowser =new EdgeDriver();
                 break;
             case ANDROID: driverRunForMobileOrBrowser = setAndroidDriver();
-                System.out.println("Lien android--" + driverRunForMobileOrBrowser.hashCode());
                 break;
             case IOS: driverRunForMobileOrBrowser = setIOSDriver();
                 break;
@@ -141,16 +141,39 @@ public class DriverManager {
         }
     }
     private DesiredCapabilities get_bs_capabilities(String testName) {
+        String buildPath = setBuildPath();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", testName);
-        capabilities.setCapability("browserName", "iPhone");
+       // capabilities.setCapability("browserName", "iPhone");
+        capabilities.setCapability("app", buildPath);
         capabilities.setCapability("device", "iPhone 8 Plus");
         capabilities.setCapability("realMobile", "true");
         capabilities.setCapability("os_version", "11");
         return capabilities;
     }
+    private Capabilities get_grid_capabilities(TestConfig.DriverType driverType) {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        switch (driverType) {
+            case CHROME:
+                return DesiredCapabilities.chrome();
+            case FIREFOX:
+                capabilities.setCapability("marionette", false);
+                return capabilities.firefox();
+            case IE:
+                return DesiredCapabilities.internetExplorer();
+            case SAFARI:
+                return DesiredCapabilities.safari();
+            case EDGE:
+                return DesiredCapabilities.edge();
+            default:
+                return DesiredCapabilities.chrome();
+        }
+    }
+    private WebDriver setGridBrowser(TestConfig.DriverType driverType) {
+        return new RemoteWebDriver(grid.hub, get_grid_capabilities(driverType));
+    }
     private WebDriver createBrowserstackBrowser(String testName) {
         return new RemoteWebDriver(browserStack.hub, get_bs_capabilities(testName));
     }
-
 }

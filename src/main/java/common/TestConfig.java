@@ -20,7 +20,7 @@ public final class TestConfig {
     public static DriverHub getHub() {
         String envHub = System.getProperty("hub");
 
-        envHub = (envHub != null) ? envHub : "local";
+        envHub = (envHub != null) ? envHub : "browserstack";
 
         switch (envHub) {
             case "browserstack":
@@ -37,7 +37,7 @@ public final class TestConfig {
     public static DriverType getDriverType() {
         String envBrowser = System.getProperty("testBrowser");
       //ios
-         envBrowser = (envBrowser != null) ? envBrowser : "chrome";
+         envBrowser = (envBrowser != null) ? envBrowser : "android";
 //         envBrowser = (envBrowser != null) ? envBrowser : "ios";
 
         switch (envBrowser.toLowerCase()) {

@@ -1,5 +1,7 @@
 package pageObjects;
 
+import common.TestConfig;
+
 public class LoginPage{
 
     public static final String EMAIL_TEXTBOX = "//input[@name='username']";
@@ -12,7 +14,7 @@ public class LoginPage{
     }
 
     public void enterUsernamePassword(String username, String password){
-        web.openUrl("https://developer-portal-client-uat.nxt.uat.unifiedpost.com/");
+        web.openUrl(TestConfig.appURL);
         web.maximumBrowser();
         web.waitToElementVisible(EMAIL_TEXTBOX);
         web.sendKeyboardToElement(EMAIL_TEXTBOX,username);

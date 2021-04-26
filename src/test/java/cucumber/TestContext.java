@@ -1,25 +1,27 @@
 package cucumber;
 
+import managers.DriverManager;
 import managers.PageObjectMobileManager;
 import managers.PageObjectWebManager;
-import managers.DriverManager;
 import pageObjects.WebAbstractPage;
 
 public class TestContext {
     private DriverManager driverManager;
-    private WebAbstractPage webAbstractPage;
     private PageObjectMobileManager pageObjectMobileManager;
     private PageObjectWebManager pageObjectWebManager;
     public ScenarioContext scenarioContext;
+    public WebAbstractPage webAbstractPage;
 
     public TestContext(){
         scenarioContext = new ScenarioContext();
-//        webAbstractPage = new WebAbstractPage("CHROME");
-//        pageObjectWebManager = new PageObjectWebManager(webAbstractPage);
+        //webAbstractPage = new WebAbstractPage("CHROME");
+        pageObjectWebManager = new PageObjectWebManager(webAbstractPage);
+        pageObjectMobileManager = new PageObjectMobileManager();
     }
-//    public WebDriverManager getWebDriverManager() {
-//        return webDriverManager;
-//    }
+    public DriverManager getWebDriverManager() {
+        return driverManager;
+    }
+
     public WebAbstractPage getWebAbstractPage() {
         return webAbstractPage;
     }
@@ -35,4 +37,5 @@ public class TestContext {
     public ScenarioContext getScenarioContext() {
         return scenarioContext;
     }
+
 }

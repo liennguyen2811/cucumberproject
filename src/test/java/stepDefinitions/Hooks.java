@@ -23,9 +23,8 @@ public class Hooks {
     @Before
     public void BeforeSteps() {
         Reporter.assignAuthor("Lien Nguyen");
-        System.out.println("Lien appURL " + TestConfig.appURL);
         appURL = TestConfig.appURL;
-        //driverType = Fixtures.SetUp.initBrowserOrAppMobile(appURL);
+        Fixtures.SetUp.initBrowserOrAppMobile(appURL);
         existingUsers = TestConfig.existingUsers;
         //testContext.getWebDriverManager().getDriver().get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
  /*What all you can perform here
@@ -41,6 +40,7 @@ public class Hooks {
     @After
     public void AfterSteps() {
         Fixtures.TearDown.close(driverType);
+        //testContext.getWebAbstractPage().close();
     }
 
 }
