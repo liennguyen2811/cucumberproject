@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import static managers.WebDriverManager.driverRunForMobileOrBrowser;
+import static managers.DriverManager.driverRunForMobileOrBrowser;
 
 public class MobileAbstractPage {
     TouchAction touch;

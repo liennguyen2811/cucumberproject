@@ -11,11 +11,9 @@ public class B2BLoginSteps {
     B2BLoginPage b2bloginPage;
     TestContext testContext;
 
-
     public B2BLoginSteps(TestContext context) {
         testContext = context;
-        b2bloginPage = testContext.getPageObjectManager().getB2BLoginPage();
-//        b2bloginPage = PageObjectManager.getB2BLoginPage();
+        b2bloginPage = testContext.getPageObjectMobileManager().getB2BLoginPage();
     }
     @Given("^B2B User is on login Page$")
     public void b2b_user_is_on_login_page()  {
@@ -32,6 +30,5 @@ public class B2BLoginSteps {
     @And("^B2B User hit login button$")
     public void b2b_user_hit_login_button(){
         b2bloginPage.clickLogInButton();
-
     }
 }

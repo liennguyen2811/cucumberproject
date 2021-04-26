@@ -37,7 +37,7 @@ public final class TestConfig {
     public static DriverType getDriverType() {
         String envBrowser = System.getProperty("testBrowser");
       //ios
-         envBrowser = (envBrowser != null) ? envBrowser : "android";
+         envBrowser = (envBrowser != null) ? envBrowser : "chrome";
 //         envBrowser = (envBrowser != null) ? envBrowser : "ios";
 
         switch (envBrowser.toLowerCase()) {

@@ -1,4 +1,4 @@
-package com.fpt.automation.BillToBox.pageobjects;
+package pageObjects;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.*;
@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Set;
 
 public class WebAbstractPage {
-
     By by;
     Select select;
     Actions action;
@@ -28,7 +27,7 @@ public class WebAbstractPage {
     List<WebElement> elements;
     JavascriptExecutor jsExecutor;
     WebDriverWait waitExplicit;
-
+    public static WebAbstractPage webAbstractPage;
 
     public WebAbstractPage(String browser) {
         this.driver = startBrowser(browser);;
@@ -36,7 +35,9 @@ public class WebAbstractPage {
         waitExplicit = new WebDriverWait(driver, longTimeout);
         action = new Actions(driver);
     }
-
+    public static WebAbstractPage getWebAbstractPage() {
+        return webAbstractPage;
+    }
 
     public void openUrl(String urlValue) {
         driver.get(urlValue);

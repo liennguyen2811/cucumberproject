@@ -1,6 +1,10 @@
 package pageObjects;
 
 public class LibraryDetailPage {
+    WebAbstractPage web;
+    public LibraryDetailPage (WebAbstractPage web) {
+        this.web = web;
+    }
 
 //    private final WebDriver driver;
 //

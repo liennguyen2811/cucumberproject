@@ -1,27 +1,27 @@
 package pageObjects;
 
-public class LoginPage extends MobileAbstractPage{
+public class LoginPage{
 
-//    private final WebDriver driver;
+    public static final String EMAIL_TEXTBOX = "//input[@name='username']";
+    public static final String PASSWORD_TEXTBOX = "//input[@name='password']";
+    public static final String LOGIN_BUTTON = "//input[@id='kc-login']";
 
-//    public LoginPage(WebDriver driver) {
-//        this.driver = driver;
-//        PageFactory.initElements(driver, this);
-//    }
-//    @FindBy(how = How.ID, using = "username")
-//    private WebElement useName;
-//    @FindBy(how = How.ID, using = "password")
-//    private WebElement password;
-//    @FindBy(how = How.ID, using = "kc-login")
-//
-//    private WebElement loginButton;
-//    public void enterUsername(String user_name) {
-//        useName.sendKeys(user_name);
-//    }
-//    public void enterPassword(String passWord) {
-//        password.sendKeys(passWord);
-//    }
-//    public void clickLoginButton() {
-//        loginButton.click();
-//    }
+    WebAbstractPage web;
+    public LoginPage (WebAbstractPage web) {
+        this.web = web;
+    }
+
+    public void enterUsernamePassword(String username, String password){
+        web.openUrl("https://developer-portal-client-uat.nxt.uat.unifiedpost.com/");
+        web.maximumBrowser();
+        web.waitToElementVisible(EMAIL_TEXTBOX);
+        web.sendKeyboardToElement(EMAIL_TEXTBOX,username);
+        web.waitToElementVisible(PASSWORD_TEXTBOX);
+        web.sendKeyboardToElement(PASSWORD_TEXTBOX, password);
+    }
+    public void clickLogInButton(){
+        web.waitToElementVisible(LOGIN_BUTTON);
+        web.clickToElement(LOGIN_BUTTON);
+    }
+
 }

@@ -1,10 +1,17 @@
 Feature: Login Action
+  Scenario: Successful Login with Valid Credentials
+    Given User is on login Page
+    And User enters "liennth7@unifiedpost.com" and "0983791128a@"
+    And User hit login button
+    And User clicks Library tap
+    And User clicks API name
+    Then Verify user login successfully
 
-  Scenario: B2B Successful Login with Valid Credentials
-    Given B2B User is on login Page
-    And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@"
-    And B2B User hit login button
-    Then B2B Verify user login successfully
+#  Scenario: B2B Successful Login with Valid Credentials
+#    Given B2B User is on login Page
+#    And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@"
+#    And B2B User hit login button
+#    Then B2B Verify user login successfully
 
 #  Scenario: Successful Login with Valid Credentials
 #    Given User enters "liennth7@unifiedpost.com" and "0983791128a@"

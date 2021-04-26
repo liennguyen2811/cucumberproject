@@ -20,14 +20,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 
-public class WebDriverManager {
+public class DriverManager {
     public static WebDriver driverRunForMobileOrBrowser;
     public TestConfig.DriverHub driverHub;
     public GridConfig grid;
     public BrowserstackConfig browserStack;
     static HashMap<String, HashMap<String, String>> existingDevice;
 
-    public WebDriverManager() {
+    public DriverManager() {
         driverHub = TestConfig.getHub();
         grid = new GridConfig();
         browserStack = new BrowserstackConfig();
@@ -36,7 +36,6 @@ public class WebDriverManager {
     }
 
     public static WebDriver getDriver() {
-        //if(driver == null) driver = createDriver();
         return driverRunForMobileOrBrowser;
     }
 

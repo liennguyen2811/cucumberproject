@@ -1,6 +1,6 @@
 package common;
 
-import managers.WebDriverManager;
+import managers.DriverManager;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ public class Fixtures {
     public static class SetUp {
 
         public static WebDriver initBrowserOrAppMobile(String applicationURL) {
-            WebDriverManager driverManager = new WebDriverManager();
+            DriverManager driverManager = new DriverManager();
             WebDriver driverType;
             if(TestConfig.getDriverType().toString().contentEquals("IOS")|| TestConfig.getDriverType().toString().contentEquals("ANDROID")){
                 driverType = driverManager.createDriver();

@@ -4,6 +4,7 @@ import com.cucumber.listener.Reporter;
 import common.Fixtures;
 import common.TestConfig;
 import cucumber.TestContext;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -16,13 +17,15 @@ public class Hooks {
     protected static HashMap<String, HashMap<String, String>> existingUsers;
     public Hooks(TestContext context) {
         testContext = context;
+        TestConfig.initEnvironment();
     }
 
     @Before
     public void BeforeSteps() {
         Reporter.assignAuthor("Lien Nguyen");
+        System.out.println("Lien appURL " + TestConfig.appURL);
         appURL = TestConfig.appURL;
-        driverType = Fixtures.SetUp.initBrowserOrAppMobile(appURL);
+        //driverType = Fixtures.SetUp.initBrowserOrAppMobile(appURL);
         existingUsers = TestConfig.existingUsers;
         //testContext.getWebDriverManager().getDriver().get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
  /*What all you can perform here
@@ -35,9 +38,9 @@ public class Hooks {
  */
     }
 
-//    @After
-//    public void AfterSteps() {
-//        Fixtures.TearDown.close(driverType);
-//    }
+    @After
+    public void AfterSteps() {
+        Fixtures.TearDown.close(driverType);
+    }
 
 }

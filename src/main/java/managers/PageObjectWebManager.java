@@ -1,32 +1,31 @@
 package managers;
 
-import org.openqa.selenium.WebDriver;
 import pageObjects.*;
 
-public class PageObjectManagerWeb {
+public class PageObjectWebManager {
 
-    private WebDriver driver;
+    private WebAbstractPage webAbstractPage;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private LibraryPage libraryPage;
     private LibraryDetailPage libraryDetailPage;
-    private B2BLoginPage b2bLoginPage;
 
-    public PageObjectManagerWeb(WebDriver driver) {
-        this.driver = driver;
+
+    public PageObjectWebManager(WebAbstractPage webAbstractPage) {
+        this.webAbstractPage = webAbstractPage;
     }
 
     public LoginPage getLoginPage() {
-        return (loginPage == null) ? loginPage = new LoginPage(this.driver) : loginPage;
+        return (loginPage == null) ? loginPage = new LoginPage(webAbstractPage) : loginPage;
     }
     public DashboardPage getDashboardPage() {
-        return (dashboardPage == null) ? dashboardPage = new DashboardPage(driver) : dashboardPage;
+        return (dashboardPage == null) ? dashboardPage = new DashboardPage(webAbstractPage) : dashboardPage;
     }
     public LibraryPage getLibraryPage() {
-        return (libraryPage == null) ? libraryPage = new LibraryPage(driver) : libraryPage;
+        return (libraryPage == null) ? libraryPage = new LibraryPage(webAbstractPage) : libraryPage;
     }
     public LibraryDetailPage getLibraryDetailPage() {
-        return (libraryDetailPage == null) ? libraryDetailPage = new LibraryDetailPage(driver) : libraryDetailPage;
+        return (libraryDetailPage == null) ? libraryDetailPage = new LibraryDetailPage(webAbstractPage) : libraryDetailPage;
     }
 
 }
