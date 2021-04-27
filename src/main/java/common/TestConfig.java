@@ -20,7 +20,7 @@ public final class TestConfig {
     public static DriverHub getHub() {
         String envHub = System.getProperty("hub");
 
-        envHub = (envHub != null) ? envHub : "local";
+        envHub = (envHub != null) ? envHub : "browserstack";
 
         switch (envHub) {
             case "browserstack":

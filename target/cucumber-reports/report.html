@@ -39,6 +39,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 							<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
@@ -52,7 +53,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Apr 26, 2021 04:29:13 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Apr 27, 2021 04:50:45 PM</span>
 				</a>
 			</li>
 			<li>
@@ -78,6 +79,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -128,10 +131,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -143,10 +146,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -158,10 +161,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>2</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='50%'>3</span> others
 				</div>
 			</div>
 		</div>
@@ -175,25 +178,25 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Login Action</span>
-						<span class='test-time'>Apr 26, 2021 04:29:13 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-time'>Apr 27, 2021 04:50:45 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 21s+385ms</span>
+<div class='scenario node' test-id='2' status='fail'>
+	<span class='duration right label'>0h 2m 6s+734ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">B2B Successful Login with Valid Credentials</span>
+		<span class="desc-text">Fintek Successful Login with Valid Credentials</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
-			<span class="bdd-step-name">Given B2B User is on login Page</span>
+			<span class="bdd-step-name">Given Fintek User is on login Page</span>
 				<div class='pre'>passed</div>
 			
 		</li>
@@ -201,24 +204,52 @@
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@"</span>
+			<span class="bdd-step-name">And Fintek User select language</span>
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='5' class='node and pass' status='pass'>
+		<li test-id='5' class='node and fail' status='fail'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">And B2B User hit login button</span>
-				<div class='pre'>passed</div>
+			<span class="bdd-step-name">And Fintek User select country then hit Next button</span>
+				<div class='pre'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.xpath: //XCUIElementTypeStaticText[@value='Estonia'] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LPP00173386D.local', ip: '10.89.81.32', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '11.0.9'
+Driver info: io.appium.java_client.ios.IOSDriver
+Capabilities {64bit: false, acceptSslCert: false, acceptSslCerts: false, autoAcceptAlerts: true, automationName: XCUITest, bootstrapPath: /usr/local/.browserstack/co..., browserName: , browserstack-tunnel: true, browserstack.appium_version: 1.17.0, browserstack.isTargetBased: false, browserstack.is_hub_canary: false, browserstack.minOSVersion: 11.0, buildName: Java IOS Local, bundleID: com.fitekmobile.staging, bundleId: com.fitekmobile.staging, databaseEnabled: false, detected_language: selenium/3.141.59 (java mac), device: iphone, deviceName: iPhone 11, deviceOrientation: PORTRAIT, javascriptEnabled: true, locationContextEnabled: false, mobile: {browser: mobile, version: iPhone 11-13.1}, networkConnectionEnabled: false, newCommandTimeout: 0, new_bucketing: true, noReset: true, orientation: PORTRAIT, orig_os: ios, osVersion: 13, os_version: 13.0, platform: MAC, platformName: iOS, projectName: First Java Project, realMobile: true, safariIgnoreFraudWarning: true, safariInitialUrl: http://mobile-internet-chec..., sessionName: local_test, takesScreenshot: true, udid: 00008030-000A75262E88802E, uiautomator2ServerLaunchTimeout: 60000, useXctestrunFile: true, version: , waitForQuiescence: false, wdaStartupRetries: 3, wda_port: 8403, webStorageEnabled: false, webkitResponseTimeout: 20000}
+Session ID: 18304ed9e14da60d0401b6143f74a7eb5f92d5e9
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at pageObjects.MobileAbstractPage.scrollToElement(MobileAbstractPage.java:380)
+	at pageObjects.FintekLoginPage.selectCountryInList(FintekLoginPage.java:42)
+	at stepDefinitions.FintekLoginSteps.fintek_user_select_country_then_hit_next_button(FintekLoginSteps.java:37)
+	at ✽.And Fintek User select country then hit Next button(End2End_Test.feature:5)
+</pre></div>
 			
 		</li>
-		<li test-id='6' class='node then pass' status='pass'>
+		<li test-id='6' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Fintek User select method login "Username"</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='7' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Fintexk User enters "Qa_admin" and "Testing1!"</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='8' class='node then skip' status='skip'>
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">Then B2B Verify user login successfully</span>
-				<div class='pre'>passed</div>
+			<span class="bdd-step-name">Then Fintek Verify user login successfully</span>
+				<div class='pre'>skipped</div>
 			
 		</li>
 	</ul>
@@ -279,13 +310,13 @@
                             <div class='author-heading'>
                                 <span class='author-name'>LienNguyen</span>
                                 <span class='author-status right'>
-                                        <span class='label pass'>1</span>
+                                        <span class='label fail'>1</span>
 						        </span>
                             </div>
                             <div class='author-content hide'>
                                 <div class='author-status-counts'>
-                                    <span class='label green accent-4 white-text'>Passed: 1</span>
                                     
+                                    <span class='label red lighten-1 white-text'>Failed: 1</span>
                                     
                                 </div>
 
@@ -300,9 +331,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Apr 26, 2021 04:29:13 PM</td>
-                                                <td class='linked' test-id='2'>Login Action.B2B Successful Login with Valid Credentials</td>
-                                                <td><span class='test-status pass'>pass</span></td>
+                                                <td>Apr 27, 2021 04:50:45 PM</td>
+                                                <td class='linked' test-id='2'>Login Action.Fintek Successful Login with Valid Credentials</td>
+                                                <td><span class='test-status fail'>fail</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -317,6 +348,79 @@
     <div class='subview-right left'>
         <div class='view-summary'>
             <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Apr 27, 2021 04:51:17 PM</td>
+                                                        <td class='linked' test-id='5'>Login Action.Fintek Successful Login with Valid Credentials.And Fintek User select country then hit Next button</td>
+                                                        <td><pre><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.xpath: //XCUIElementTypeStaticText[@value='Estonia'] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LPP00173386D.local', ip: '10.89.81.32', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '11.0.9'
+Driver info: io.appium.java_client.ios.IOSDriver
+Capabilities {64bit: false, acceptSslCert: false, acceptSslCerts: false, autoAcceptAlerts: true, automationName: XCUITest, bootstrapPath: /usr/local/.browserstack/co..., browserName: , browserstack-tunnel: true, browserstack.appium_version: 1.17.0, browserstack.isTargetBased: false, browserstack.is_hub_canary: false, browserstack.minOSVersion: 11.0, buildName: Java IOS Local, bundleID: com.fitekmobile.staging, bundleId: com.fitekmobile.staging, databaseEnabled: false, detected_language: selenium/3.141.59 (java mac), device: iphone, deviceName: iPhone 11, deviceOrientation: PORTRAIT, javascriptEnabled: true, locationContextEnabled: false, mobile: {browser: mobile, version: iPhone 11-13.1}, networkConnectionEnabled: false, newCommandTimeout: 0, new_bucketing: true, noReset: true, orientation: PORTRAIT, orig_os: ios, osVersion: 13, os_version: 13.0, platform: MAC, platformName: iOS, projectName: First Java Project, realMobile: true, safariIgnoreFraudWarning: true, safariInitialUrl: http://mobile-internet-chec..., sessionName: local_test, takesScreenshot: true, udid: 00008030-000A75262E88802E, uiautomator2ServerLaunchTimeout: 60000, useXctestrunFile: true, version: , waitForQuiescence: false, wdaStartupRetries: 3, wda_port: 8403, webStorageEnabled: false, webkitResponseTimeout: 20000}
+Session ID: 18304ed9e14da60d0401b6143f74a7eb5f92d5e9
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at pageObjects.MobileAbstractPage.scrollToElement(MobileAbstractPage.java:380)
+	at pageObjects.FintekLoginPage.selectCountryInList(FintekLoginPage.java:42)
+	at stepDefinitions.FintekLoginSteps.fintek_user_select_country_then_hit_next_button(FintekLoginSteps.java:37)
+	at ✽.And Fintek User select country then hit Next button(End2End_Test.feature:5)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
         </div>
     </div>
 </div>
@@ -341,25 +445,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 26, 2021 04:29:13 PM</div>
+					<div class='panel-lead'>Apr 27, 2021 04:50:45 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 26, 2021 04:29:34 PM</div>
+			 		<div class='panel-lead'>Apr 27, 2021 04:52:55 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 21s+579ms</div>
+					<div class='panel-lead'>0h 2m 10s+323ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -408,31 +512,31 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 0,
+				exceptionsChild: 1,
 				
-				passGrandChild: 4,
-				failGrandChild: 0,
+				passGrandChild: 2,
+				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 3,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 4,
 			};
 		</script>
 		

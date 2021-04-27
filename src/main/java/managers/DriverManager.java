@@ -16,10 +16,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import com.browserstack.local.Local;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 public class DriverManager {
     public static WebDriver driverRunForMobileOrBrowser;
@@ -27,6 +29,7 @@ public class DriverManager {
     public GridConfig grid;
     public BrowserstackConfig browserStack;
     static HashMap<String, HashMap<String, String>> existingDevice;
+    private static Local localInstance;
 
     public DriverManager() {
         driverHub = TestConfig.getHub();
@@ -107,9 +110,9 @@ public class DriverManager {
         capabilities.setCapability("autoAcceptAlerts", "true");
         capabilities.setCapability("newCommandTimeout","3000");
         try {
-            return new IOSDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+            return new IOSDriver(new URL("//http://hub.browserstack.com/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // http://hub.browserstack.com/wd/hub http://localhost:4723/wd/hub
         }
         return null;
     }
@@ -140,15 +143,36 @@ public class DriverManager {
             System.setProperty("webdriver.gecko.driver", "./src/bin/macOS/geckodriver");
         }
     }
+    public static void setupLocal() throws Exception {
+        localInstance = new Local();
+        Map<String, String> options = new HashMap<String, String>();
+        options.put("key", "NTdNshs8XaxvsTdSJBzy");
+        localInstance.start(options);
+        System.out.println("if come here setupLocal" + localInstance.toString());
+    }
+    public static void tearDownLocal() throws Exception {
+        localInstance.stop();
+    }
     private DesiredCapabilities get_bs_capabilities(String testName) {
-        String buildPath = setBuildPath();
+        try {
+            setupLocal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", testName);
-       // capabilities.setCapability("browserName", "iPhone");
-        capabilities.setCapability("app", buildPath);
-        capabilities.setCapability("device", "iPhone 8 Plus");
-        capabilities.setCapability("realMobile", "true");
-        capabilities.setCapability("os_version", "11");
+        capabilities.setCapability("browserstack.user", "minhtran38");
+        capabilities.setCapability("browserstack.key", "NTdNshs8XaxvsTdSJBzy");
+        capabilities.setCapability("browserstack.local", true);
+        capabilities.setCapability("project", "First Java Project");
+        capabilities.setCapability("build", "Java IOS Local");
+        capabilities.setCapability("name", "local_test");
+        capabilities.setCapability("app", "bs://a76bc99d12c96a50ed753da54b69488fc04b131c");
+        capabilities.setCapability("autoAcceptAlerts", "true");
+        // capabilities.setCapability("browserName", "iPhone");
+        //capabilities.setCapability("realMobile", "true");
+        capabilities.setCapability("os_version", "13");
+        capabilities.setCapability("device", "iPhone 11");
         return capabilities;
     }
     private Capabilities get_grid_capabilities(TestConfig.DriverType driverType) {
@@ -174,6 +198,6 @@ public class DriverManager {
         return new RemoteWebDriver(grid.hub, get_grid_capabilities(driverType));
     }
     private WebDriver createBrowserstackBrowser(String testName) {
-        return new RemoteWebDriver(browserStack.hub, get_bs_capabilities(testName));
+        return new IOSDriver(browserStack.hub, get_bs_capabilities(testName));
     }
 }

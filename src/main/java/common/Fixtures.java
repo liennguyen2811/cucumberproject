@@ -1,5 +1,6 @@
 package common;
 
+import com.browserstack.local.Local;
 import managers.DriverManager;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
 import java.awt.*;
-
 public class Fixtures {
     public static class SetUp {
 
@@ -29,12 +29,24 @@ public class Fixtures {
     public static class TearDown {
 
         public static void close(WebDriver driverType) {
+            System.out.println("if come here 1" + driverType.toString());
             if (driverType != null) {
+                System.out.println("if come here 2" + driverType.toString());
                 driverType.quit();
             }
         }
     }
+    public static class TearDownBrowserStacklocal {
 
+        public static void close(Local localInstance) throws Exception {
+            System.out.println("if come here 1" + localInstance.toString());
+            if (localInstance != null) {
+                System.out.println("if come here 2");
+                localInstance.stop();
+                System.out.println("if come here 3");
+            }
+        }
+    }
     private static void maximizeWindow(WebDriver browser) {
         try {
             browser.manage().window().maximize();
