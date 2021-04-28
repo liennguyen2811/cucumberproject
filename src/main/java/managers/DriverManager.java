@@ -110,9 +110,9 @@ public class DriverManager {
         capabilities.setCapability("autoAcceptAlerts", "true");
         capabilities.setCapability("newCommandTimeout","3000");
         try {
-            return new IOSDriver(new URL("//http://hub.browserstack.com/wd/hub"), capabilities);
+            return new IOSDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
-            e.printStackTrace(); // http://hub.browserstack.com/wd/hub http://localhost:4723/wd/hub
+            e.printStackTrace();
         }
         return null;
     }
@@ -148,31 +148,40 @@ public class DriverManager {
         Map<String, String> options = new HashMap<String, String>();
         options.put("key", "NTdNshs8XaxvsTdSJBzy");
         localInstance.start(options);
-        System.out.println("if come here setupLocal" + localInstance.toString());
     }
     public static void tearDownLocal() throws Exception {
         localInstance.stop();
     }
     private DesiredCapabilities get_bs_capabilities(String testName) {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        if(TestConfig.getDriverType().toString().contentEquals("IOS")|| TestConfig.getDriverType().toString().contentEquals("ANDROID")) {
         try {
             setupLocal();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("name", testName);
         capabilities.setCapability("browserstack.user", "minhtran38");
         capabilities.setCapability("browserstack.key", "NTdNshs8XaxvsTdSJBzy");
         capabilities.setCapability("browserstack.local", true);
-        capabilities.setCapability("project", "First Java Project");
+        capabilities.setCapability("project", "Second Java Project");
         capabilities.setCapability("build", "Java IOS Local");
         capabilities.setCapability("name", "local_test");
         capabilities.setCapability("app", "bs://a76bc99d12c96a50ed753da54b69488fc04b131c");
         capabilities.setCapability("autoAcceptAlerts", "true");
-        // capabilities.setCapability("browserName", "iPhone");
         //capabilities.setCapability("realMobile", "true");
         capabilities.setCapability("os_version", "13");
         capabilities.setCapability("device", "iPhone 11");
+        } else {
+
+            capabilities.setCapability("name", testName);
+            capabilities.setCapability("browserName", "iPhone");
+            capabilities.setCapability("device", "iPhone 8 Plus");
+            capabilities.setCapability("realMobile", "true");
+            capabilities.setCapability("os_version", "11");
+
+        }
         return capabilities;
     }
     private Capabilities get_grid_capabilities(TestConfig.DriverType driverType) {
@@ -198,6 +207,12 @@ public class DriverManager {
         return new RemoteWebDriver(grid.hub, get_grid_capabilities(driverType));
     }
     private WebDriver createBrowserstackBrowser(String testName) {
-        return new IOSDriver(browserStack.hub, get_bs_capabilities(testName));
+        if (TestConfig.getDriverType().toString().contentEquals("IOS")) {
+            return new IOSDriver(browserStack.hub, get_bs_capabilities(testName));
+        } else if (TestConfig.getDriverType().toString().contentEquals("ANDROID")) {
+            return new AndroidDriver(browserStack.hub, get_bs_capabilities(testName));
+        } else {
+            return new RemoteWebDriver(browserStack.hub, get_bs_capabilities(testName));
+        }
     }
 }

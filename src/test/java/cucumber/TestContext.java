@@ -14,7 +14,7 @@ public class TestContext {
 
     public TestContext(){
         scenarioContext = new ScenarioContext();
-        //webAbstractPage = new WebAbstractPage("CHROME");
+        //webAbstractPage = new WebAbstractPage("CHROME"); it should be init at login page if following the flow to test
         pageObjectWebManager = new PageObjectWebManager(webAbstractPage);
         pageObjectMobileManager = new PageObjectMobileManager();
     }

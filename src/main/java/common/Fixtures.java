@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriverException;
 import java.awt.*;
 public class Fixtures {
     public static class SetUp {
-
+        DriverManager driverManager;
         public static WebDriver initBrowserOrAppMobile(String applicationURL) {
             DriverManager driverManager = new DriverManager();
             WebDriver driverType;
@@ -29,9 +29,7 @@ public class Fixtures {
     public static class TearDown {
 
         public static void close(WebDriver driverType) {
-            System.out.println("if come here 1" + driverType.toString());
             if (driverType != null) {
-                System.out.println("if come here 2" + driverType.toString());
                 driverType.quit();
             }
         }

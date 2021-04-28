@@ -31,7 +31,6 @@ public class FintekLoginSteps {
         //fintekloginPage.selectLanguageInList("English");
 
     }
-
     @And("^Fintek User select country then hit Next button$")
     public void fintek_user_select_country_then_hit_next_button()  {
         fintekloginPage.selectCountryInList("Estonia");
