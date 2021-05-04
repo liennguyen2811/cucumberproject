@@ -36,7 +36,7 @@ public class Hooks {
     protected static HashMap<String, HashMap<String, String>> existingUsers;
     private static APIClient client = null;
     //private static String runId = getProperties().getProperty("runIdTestRail" );
-    String runId = "R12182";
+    String runId = "";
     private static final int FAIL_STATE = 5;
     private static final int SUCCESS_STATE = 1;
     private static final String SUCCESS_COMMENT = "This test passed with Selenium";
@@ -105,7 +105,7 @@ public class Hooks {
                     runId = "12182";
                 }
 
-                testrailClient.sendTestResultInRun("12182", "C223421", "statusId", "comment", "defectId");
+                testrailClient.sendTestResultInRun("12182", "223421", "1", "qq", "qq");
             } catch (IOException | APIException e) {
                 e.printStackTrace();
             }
