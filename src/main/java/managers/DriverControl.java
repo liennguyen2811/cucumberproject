@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DriverManager {
+public class DriverControl {
     public static WebDriver driverRunForMobileOrBrowser;
     public TestConfig.DriverHub driverHub;
     public GridConfig grid;
@@ -31,7 +31,7 @@ public class DriverManager {
     static HashMap<String, HashMap<String, String>> existingDevice;
     private static Local localInstance;
 
-    public DriverManager() {
+    public DriverControl() {
         driverHub = TestConfig.getHub();
         grid = new GridConfig();
         browserStack = new BrowserstackConfig();

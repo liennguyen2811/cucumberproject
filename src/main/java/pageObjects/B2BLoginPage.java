@@ -8,10 +8,6 @@ public class B2BLoginPage extends MobileAbstractPage{
     public static final String LOGIN_BUTTON = "//*[contains(@resource-id,'filledBackgroundText')]";
 
 
-//    DEFAULT_COMPANY_TITLE: "//*[contains(@resource-id,'titleTextView')]"
-//    BRAND: "//android.widget.TextView[@content-desc='%s']"
-//    Ok_BUTTON: "//*[contains(@resource-id,'filledButtonLayout')]
-
     public void loginB2B(String user_name, String pass_word) {
         waitForVisibility(LOGIN_AND_START);
         tapOnElement(LOGIN_AND_START);

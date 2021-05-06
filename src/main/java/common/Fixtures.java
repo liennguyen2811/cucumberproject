@@ -1,7 +1,7 @@
 package common;
 
 import com.browserstack.local.Local;
-import managers.DriverManager;
+import managers.DriverControl;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,15 +10,15 @@ import org.openqa.selenium.WebDriverException;
 import java.awt.*;
 public class Fixtures {
     public static class SetUp {
-        DriverManager driverManager;
+        DriverControl driverControl;
         public static WebDriver initBrowserOrAppMobile(String applicationURL) {
-            DriverManager driverManager = new DriverManager();
+            DriverControl driverControl = new DriverControl();
             WebDriver driverType;
             if(TestConfig.getDriverType().toString().contentEquals("IOS")|| TestConfig.getDriverType().toString().contentEquals("ANDROID")){
-                driverType = driverManager.createDriver();
+                driverType = driverControl.createDriver();
             }
             else {
-                driverType = driverManager.createDriver();
+                driverType = driverControl.createDriver();
                 maximizeWindow(driverType);
                 driverType.get(applicationURL);
             }

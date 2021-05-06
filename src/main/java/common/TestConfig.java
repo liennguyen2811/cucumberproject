@@ -59,7 +59,11 @@ public final class TestConfig {
     }
 
     public static String getTestrailRunId() {
-        return System.getProperty("testRunId");
+        String testRunId = System.getProperty("testBrowser");
+        //ios
+        testRunId = (testRunId != null) ? testRunId : "12182";
+        return testRunId;
+        //return System.getProperty("testRunId");
     }
 
     public static String getTestrailPlanId() {

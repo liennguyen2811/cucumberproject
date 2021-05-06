@@ -1,12 +1,12 @@
 package cucumber;
 
-import managers.DriverManager;
+import managers.DriverControl;
 import managers.PageObjectMobileManager;
 import managers.PageObjectWebManager;
 import pageObjects.WebAbstractPage;
 
 public class TestContext {
-    private DriverManager driverManager;
+    private DriverControl driverControl;
     private PageObjectMobileManager pageObjectMobileManager;
     private PageObjectWebManager pageObjectWebManager;
     public ScenarioContext scenarioContext;
@@ -18,8 +18,8 @@ public class TestContext {
         pageObjectWebManager = new PageObjectWebManager(webAbstractPage);
         pageObjectMobileManager = new PageObjectMobileManager();
     }
-    public DriverManager getWebDriverManager() {
-        return driverManager;
+    public DriverControl getWebDriverManager() {
+        return driverControl;
     }
 
     public WebAbstractPage getWebAbstractPage() {
