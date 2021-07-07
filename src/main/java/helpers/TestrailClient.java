@@ -12,9 +12,9 @@ import java.util.Map;
 
 public class TestrailClient {
 
-    private static final String TEST_RAIL_URL = "https://testup.testrail.net/";
-    private static final String TEST_RAIL_USER = "minhtl2@unifiedpost.com";
-    private static final String TEST_RAIL_KEY = "/CvU4AVxFAg8V2yZ5LvM-IHcdhZKuG2H.HgwG85M5";
+    private static final String TEST_RAIL_URL = "pasword ne";
+    private static final String TEST_RAIL_USER = "username ne
+    private static final String TEST_RAIL_KEY = "APIkey ne";
 
     private APIClient testrailClient;
     private String projectId = "22";
