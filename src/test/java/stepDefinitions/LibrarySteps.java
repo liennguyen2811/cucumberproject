@@ -4,7 +4,6 @@ package stepDefinitions;
 import cucumber.TestContext;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import enums.Context;
 import pageObjects.LibraryPage;
 
 public class LibrarySteps {
@@ -23,7 +22,7 @@ public class LibrarySteps {
     @When("^User choose the API to view$")
     public void user_choose_the_API_to_view()  {
         String apiName = libraryPage.getLiraryName();
-        testContext.scenarioContext.setContext(Context.API_NAME, apiName);
+        //testContext.scenarioContext.setContext(Context.API_NAME, apiName);
     }
     @When("^User clicks Library tap$")
     public void user_clicks_Library_Tab() {

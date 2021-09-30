@@ -1,12 +1,9 @@
 package pageObjects;
 
 public class FintekLoginPage extends MobileAbstractPage{
-    public static final String LOGIN_AND_START = "//*[contains(@resource-id,'filledButtonLayout')]";
     public static final String OK_BUTTON= "//XCUIElementTypeButton[@name='OK']";
-    public static final String COUNTRY_LANGUAGE_SCREEN_TITLE= "//XCUIElementTypeStaticText[@name='tvScreenTitle']";
     public static final String PICKER_LANGUAGE= "//XCUIElementTypeImage[@name='ic_down_arrow']/parent::*";
     public static final String DONE_BUTTON= "//*[@name='Done']";
-    public static final String PICKER_LANGUAGE_TEXT= "//XCUIElementTypeStaticText[@name='tvLanguageSet']";
     public static final String SELECT_LANGUAGE_IN_LIST = "//XCUIElementTypePickerWheel";
     public static final String SELECT_COUNTRY_IN_LIST= "//XCUIElementTypeStaticText[@value='%s']";
     public static final String BUTTON_NEXT= "//XCUIElementTypeButton[@name='btnSave']";

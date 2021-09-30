@@ -1,16 +1,16 @@
 {
   "device": {
     "iphone_7": {
-      "device_name": "iPhone 12 Pro Max",
+      "device_name": "Phone 11 Pro Max",
       "platform_name": "iOS",
-      "platform_version": "14.2",
+      "platform_version": "14.5",
       "no_reset": true,
-      "udid": "CFFAEBED-5E31-495B-8793-A0963AD4CD48",
+      "udid": "CAAC9266-A5E3-4E53-9567-8F650D201B3E",
       "automation_name": "XCUITest",
-      "app_path": "MYUP.app"
+      "app_path": "BilltoBox.app"
     },
     "samsung_s6": {
-      "device_name": "R9JN1003YDJ",
+      "device_name": "emulator-5554",
       "platform_name": "Android",
       "platform_version": "10",
       "no_reset": false,

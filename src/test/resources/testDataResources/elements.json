@@ -1,12 +1,40 @@
 {
   "iOS": {
     "B2BLoginPage": {
-      "LOGIN_AND_START": "//*[@name='Log in and get started']",
-      "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']"
+      "LOGIN_AND_START": "//*[@name='btnGetStarted']",
+      "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']",
+      "BELGIUM_COUNTRY_SELECTOR" : "//XCUIElementTypeImage[@name='btnBelgium']",
+      "USER_NAME": "//XCUIElementTypeTextField[@name='edtEmail']",
+      "PASSWORD": "//XCUIElementTypeSecureTextField[@name='edtPassword']",
+      "LOGIN_BUTTON" : "(//*[@name='btnLogin'])[1]"
     },
-    "android": {
-      "LOGIN_AND_START": "//*[@name='Log in and get started']",
-      "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']"
+    "B2BDashboardPage": {
+      "NAME_COMPANY_BRAND" : "//*[@name='%s']",
+      "ACTIVE_DOCS_BUTTON" : "//XCUIElementTypeButton[@name='Archive']",
+      "DOC_CENTER_BUTTON" : "//XCUIElementTypeButton[@name='btnDocCenter']",
+      "ARCHIVE_BUTTON" : "//XCUIElementTypeButton[@name='Active docs']",
+      "DASHBOARD_BUTTON" : "//XCUIElementTypeButton[@name='Dashboard']",
+      "BRAND" : "//XCUIElementTypeStaticText[@name='%s']",
+      "OK_BUTTON" : "//XCUIElementTypeButton[@name='btnConfirmation']"
+    }
+  },
+    "Android": {
+      "B2BLoginPage": {
+        "LOGIN_AND_START": "//*[contains(@resource-id,'filledButtonLayout')]",
+        "EMAIL_ADDRESS": "//XCUIElementTypeTextField[@name='edtEmail']",
+        "BELGIUM_COUNTRY_SELECTOR" : "//*[contains(@resource-id,'belgium_logo')]",
+        "USER_NAME": "//*[contains(@resource-id,'edittextEmail')]",
+        "PASSWORD": "//*[contains(@resource-id,'edittextPassword')]",
+        "LOGIN_BUTTON" : "//*[contains(@resource-id,'filledBackgroundText')]"
+      },
+      "B2BDashboardPage": {
+        "NAME_COMPANY_BRAND" : "//*[@text='%s']",
+        "ACTIVE_DOCS_BUTTON" : "//*[contains(@resource-id,'activeDocs')]",
+        "DOC_CENTER_BUTTON" : "//*[contains(@resource-id,'docCenter')]",
+        "ARCHIVE_BUTTON" : "//*[contains(@resource-id,'activeDocs')]",
+        "DASHBOARD_BUTTON" : "//*[contains(@resource-id,'dashboard')]",
+        "BRAND" : "//android.widget.TextView[@content-desc='%s']",
+        "OK_BUTTON" : "//*[contains(@resource-id,'filledButtonLayout')]"
+      }
     }
   }
-}

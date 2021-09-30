@@ -35,7 +35,6 @@ public class TestrailClient {
     }
 
     public void sendTestResultInRun(String runId, String caseId, String statusId, String comment, String defectId) throws IOException, APIException {
-        System.out.println("Lien sendTestResultInRun  " + runId);
         Map<String, String> testValues = new HashMap<>();
         testValues.put("status_id", statusId);
         testValues.put("comment", comment);

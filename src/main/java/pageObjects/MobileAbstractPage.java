@@ -1,7 +1,6 @@
 package pageObjects;
 
 import com.google.common.collect.ImmutableMap;
-import com.opencsv.CSVReader;
 import common.TestConfig;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
@@ -22,7 +21,6 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileReader;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,7 +34,6 @@ public class MobileAbstractPage {
     Actions action;
     WebElement element;
     By by;
-    long sortTimeout = 5;
     long longTimeout = 30;
     WebDriver driver = driverRunForMobileOrBrowser;
     List<String[]> csvReader;
@@ -49,16 +46,9 @@ public class MobileAbstractPage {
             touch = new TouchAction((MobileDriver) driver);
             jsExecutor = (JavascriptExecutor) driver;
             waitExplicit = new WebDriverWait(driver, longTimeout);
-            action = new Actions(driver);
-            csvReader = new CSVReader(new FileReader(System.getProperty("user.dir")
-                   + "/src/test/resources/testdata/language.csv")).readAll();
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }
-
-    protected WebDriver getDriver() {
-        return driverRunForMobileOrBrowser;
     }
 
     By elementAttribute(String locator) {
@@ -555,5 +545,18 @@ public class MobileAbstractPage {
             return ((AndroidDriver) driver).isKeyboardShown();
         else
             return ((IOSDriver) driver).isKeyboardShown();
+    }
+    public boolean isElementDisplayedWithWaitTime(String locator,int seconds) {
+        sleepInSecond(seconds);
+        try {
+            element = driver.findElement(elementAttribute(locator));
+            return element.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(this.getClass().getName() + " findElement Element not display " + locator);
+            return false;
+        }
+    }
+    public String getAppName() {
+        return TestConfig.getCommunity();
     }
 }

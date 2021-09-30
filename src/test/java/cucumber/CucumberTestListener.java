@@ -116,16 +116,13 @@ public class CucumberTestListener {
         String FAILED_COMMENT = "";
         Field field = FieldUtils.getField(((ScenarioImpl) scenario).getClass(), "stepResults", true);
         field.setAccessible(true);
-        System.out.println("Lien 1" + field.toString());
         try {
             ArrayList<Result> results = (ArrayList<Result>) field.get(scenario);
             System.out.println("" + results.toString());
             for (Result result : results) {
                 if (result.getError() != null){
-                    System.out.println(scenario.getId()  + "  " + result.getError());
                     FAILED_COMMENT = scenario.getId() + "---" + result.getError().getMessage();
                 }
-
             }
         } catch (Exception e) {
             FAILED_COMMENT = "Error while logging error" + e;
@@ -142,7 +139,7 @@ public class CucumberTestListener {
             ArrayList<Result> results = (ArrayList<Result>) field.get(scenario);
             for (Result result : results) {
                 if (result.getError() != null)
-                    confErrorTrace = "Error Scenario: " + scenario.getId() + result.getError();
+                    confErrorTrace = "Error Scenario:  " + scenario.getId() + "  " + result.getError();
             }
         } catch (Exception e) {
             confErrorTrace ="Error while logging error  " + e;
@@ -153,14 +150,10 @@ public class CucumberTestListener {
     private String getTestCaseId(Scenario scenario) {
         String caseId = "";
         System.out.println(scenario.getSourceTagNames());
-
         for (String s : scenario.getSourceTagNames()) {
             if (s.contains("TestRail")) {
-
                 String[] res = s.split("(\\(.*?)");
-
                 caseId = res[1].substring(0, res[1].length() - 1); // Removing the last parenthesis
-                System.out.println("Lien caseID --" + caseId);
             }
         }
         return caseId;

@@ -2,7 +2,7 @@ Feature: Login Action
   @regressionM1 @TestRails(223421)
   Scenario: B2B Successful Login with Valid Credentials
     Given B2B User is on login Page
-    And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@"
+    And B2B User enters "liennth7@unifiedpost.com" and "0983791128a@A"
     And B2B User hit login button
     Then B2B Verify user login successfully
 

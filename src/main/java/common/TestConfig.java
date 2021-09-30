@@ -36,9 +36,8 @@ public final class TestConfig {
 
     public static DriverType getDriverType() {
         String envBrowser = System.getProperty("testBrowser");
-      //ios
-         envBrowser = (envBrowser != null) ? envBrowser : "android";
-//         envBrowser = (envBrowser != null) ? envBrowser : "ios";
+//         envBrowser = (envBrowser != null) ? envBrowser : "android";
+         envBrowser = (envBrowser != null) ? envBrowser : "ios";
 
         switch (envBrowser.toLowerCase()) {
             case "firefox":
@@ -59,11 +58,7 @@ public final class TestConfig {
     }
 
     public static String getTestrailRunId() {
-        String testRunId = System.getProperty("testBrowser");
-        //ios
-        testRunId = (testRunId != null) ? testRunId : "12182";
-        return testRunId;
-        //return System.getProperty("testRunId");
+        return System.getProperty("testRunId");
     }
 
     public static String getTestrailPlanId() {
@@ -104,7 +99,10 @@ public final class TestConfig {
     public static void setTestrailTestNameForBrowserStack(String testNameForBrowserStack){
         testNameForBrowserstack = testNameForBrowserStack;
     }
-
+    public static String getCommunity() {
+        String envEnvironment = System.getProperty("communityEnvironment");
+        return (envEnvironment != null) ? envEnvironment.toLowerCase() : "billtobox";
+    }
     public static String getTestNameForBrowserStack() {
         return testNameForBrowserstack;
     }

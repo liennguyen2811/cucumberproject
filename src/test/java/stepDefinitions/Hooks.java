@@ -13,9 +13,7 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 
-import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Hooks {
     TestContext testContext;
@@ -39,7 +37,6 @@ public class Hooks {
         appURL = TestConfig.appURL;
         driverType = Fixtures.SetUp.initBrowserOrAppMobile(appURL);
         existingUsers = TestConfig.existingUsers;
-
     }
 
     @After
@@ -48,15 +45,11 @@ public class Hooks {
         logResultToTestRail(scenario);
     }
     private void logResultToTestRail(Scenario scenario) {
-
-        Map<String, Serializable> data = new HashMap<>();
-
         if (!scenario.isFailed()) {
             cucumberTestListener.onTestSuccess(scenario);
         } else {
             cucumberTestListener.onTestFailure(scenario);
         }
-
         }
     }
 

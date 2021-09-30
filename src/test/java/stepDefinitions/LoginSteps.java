@@ -35,6 +35,7 @@ public class LoginSteps {
          @And("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
         public void b2b_user_enters_something_and_something(String username, String password)  {
         loginPage.enterUsernamePassword(username,password);
+
         }
         @And("^User hit login button$")
          public void b2b_user_hit_login_button(){
